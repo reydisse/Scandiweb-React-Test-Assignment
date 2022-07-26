@@ -1,0 +1,38 @@
+.dropdown {
+  padding: 0;
+  overflow: hidden;
+  z-index: 1;
+  position: absolute;
+  background-color: white;
+}
+
+.dropdown-menu {
+  width: 100%;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.dropdown-enter {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+}
+.dropdown-enter-active {
+  opacity: 1;
+  transition: opacity 100ms, transform 100ms;
+  z-index: 1;
+}
+.dropdown-exit {
+  position: absolute;
+  opacity: 1;
+  z-index: 1;
+}
+.dropdown-exit-active {
+  opacity: 0;
+  transition: opacity 100ms, transform 100ms;
+  z-index: 1;
+}

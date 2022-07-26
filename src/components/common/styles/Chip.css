@@ -1,0 +1,59 @@
+.chip {
+  border: 1px solid black;
+  display: inline-flex;
+  cursor: default;
+  padding: 4px 6px 4px 6px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  min-width: 60px;
+  min-height: 35px;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms ease;
+  height: 32px;
+  width: 32px;
+}
+
+.chip:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.chip.chip-swatch:hover {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.chip.chip-selected {
+  background-color: black;
+  color: white;
+}
+
+.chip.chip-swatch {
+width: 32px;
+height: 32px
+}
+
+.chip.chip-swatch.chip-selected {
+  border: 2px solid var(--color-red);
+}
+
+.chip.chip-mini {
+  min-width: 15px;
+  min-height: 15px;
+  border: 1px solid var(--color-lighter-gray);
+  color: var(--color-lighter-gray);
+}
+
+.chip.chip-mini-swatch {
+  outline: 1px solid var(--color-lighter-gray);
+}
+
+.chip.chip-mini.chip-swatch.chip-selected {
+  outline: 1px solid var(--color-dark-gray);
+  border: 2px solid var(--color-red);
+}
+
+.chip.chip-mini.chip-selected {
+  border: 1px solid var(--color-dark-gray);
+  background: none;
+  color: var(--color-dark-gray);
+}

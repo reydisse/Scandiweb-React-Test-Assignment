@@ -1,0 +1,22 @@
+.page-container {
+  padding: 2rem;
+  padding-right: 6rem;
+  padding-left: 6rem;
+  padding-top: 10rem;
+}
+
+.category-name {
+  padding-bottom: 8rem;
+  text-transform: capitalize;
+}
+
+.page-category-title {
+  font-size: 42px;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 40px;
+  row-gap: 103px;
+}
