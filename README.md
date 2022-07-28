@@ -12,5 +12,5 @@ npm install
 npm start
 ```
 
-# Author
+### Author
 Rey Disse
