@@ -34,7 +34,7 @@ class CurrencySwitcher extends React.Component {
   }
 
   componentDidMount() {
-    this.props.setCurrencySwitcherCLoseFunc(this.closeMenu);
+    this.props.setCurrencySwitcherCloseFunc(this.closeMenu);
   }
 
   closeMenu() {
@@ -84,10 +84,13 @@ class CurrencySwitcher extends React.Component {
                         this.props.setActiveCurrency(currency.label);
                       }}
                     >
+                     
                       <p className="currency-symbol-and-name">{`${
                         currency.symbol
                       } ${currency.label}`}</p>
+                     
                     </Button>
+                    
                   </div>
                 );
               })

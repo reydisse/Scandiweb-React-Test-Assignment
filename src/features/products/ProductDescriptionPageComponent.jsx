@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DOMPurify from 'dompurify';
-import getSymbolFromCurrency from 'currency-symbol-map';
 import { fetchProductById } from './ProductSlice';
 import './styles/ProductDetailPage.css';
 import {
@@ -86,7 +85,7 @@ class ProductDescriptionPageComponent extends React.Component {
                 return (
                   <AttributeContainer key={String(index)}>
                     <AttributeTitle>{attribute.name}:</AttributeTitle>
-                    <ChipGroup
+                    <ChipGroup 
                       defaultSelectChip={(idx) => {
                         this.setSelectedChip(attribute.name, idx);
                       }}

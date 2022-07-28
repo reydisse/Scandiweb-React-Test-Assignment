@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   background: none;
+  display: flex;
   border: none;
   align-items: center;
 

@@ -6,7 +6,7 @@ import {
   FETCH_PRODUCT_BY_ID,
 } from './queries';
 
-console.log(process.env.REACT_APP_API_URL)
+// console.log(process.env.REACT_APP_API_URL)
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),

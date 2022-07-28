@@ -12,7 +12,7 @@ export const NavItem = styled.li`
   }
 
   & > .nav-link-active {
-    color: var(--color-green) !important;
+    color: var(--color-green) ;
   }
 
   &.nav-item-padding-one-half {

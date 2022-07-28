@@ -57,6 +57,9 @@
 .cart-menu-button-container > .button-outline {
   margin-right: 15px;
   padding: 12px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .cart-menu-scrollable-menu {

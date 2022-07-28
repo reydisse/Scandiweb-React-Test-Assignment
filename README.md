@@ -1,8 +1,8 @@
-# React-Exercise
+# React-Test
 
-## ScandiWeb Junior ReactJS exercise
+## Scandiweb Junior ReactJS exercise
 
-### Setting up
+### Setup
 
 ```
 npm install

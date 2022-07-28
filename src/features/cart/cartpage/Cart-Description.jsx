@@ -10,7 +10,6 @@ import {
   setNewAttributeSelectedIndex,
 } from "../CartSlice";
 import getSymbolFromCurrency from "currency-symbol-map";
-// import { Button } from '../../../components/common/Button';
 
 const Container = styled.div`
   padding: 4rem;
@@ -45,7 +44,7 @@ const CartItem = styled.li`
 `;
 const CartAnalytics = styled.li`
   display: flex;
-  padding-top: 1rem;
+  padding-top: 2rem;
   padding-bottom: 1rem;
   border-top: 1px solid var(--color-very-light-gray);
   @media (max-width: 900px) {
@@ -59,9 +58,7 @@ const AnalyticsText = styled.h2`
   font-size: 24px;
   display: flex;
   justify-content: space-between;
-  // width: 200px
-  // align-items: flex-start;
-  line-height: 28px;
+  line-height: 30px;
 `;
 const Button = styled.button`
   background: none;
@@ -157,24 +154,31 @@ class CartPage extends React.Component {
           })}
         </CartList>
         <CartAnalytics>
+        {this.props.products.length > 0 ? 
           <div>
-            <AnalyticsText>
-              Tax 21%: <strong> {}</strong>
-            </AnalyticsText>
-            <AnalyticsText>
-              Quantity: <strong> {this.props.totalItemQuantity}</strong>
-            </AnalyticsText>
-            <AnalyticsText>
-              Total:{" "}
-              <strong>
-                {" "}
-                {`${getSymbolFromCurrency(this.props.activeCurrency)}${
-                  Math.round((total + Number.EPSILON) * 100) / 100
-                }`}
-              </strong>
-            </AnalyticsText>
-            <Button style={{ color: "#fff" , fontSize: 14, fontWeight: 600}}>ORDER</Button>
-          </div>
+          <AnalyticsText>
+            Tax 21%: <strong> {" "}
+            {`${getSymbolFromCurrency(this.props.activeCurrency)}${
+                Math.round((21/ 100) * (total + Number.EPSILON) )
+              }`}
+            </strong>
+          </AnalyticsText>
+          <AnalyticsText>
+            Quantity: <strong> {this.props.totalItemQuantity}</strong>
+          </AnalyticsText>
+          <AnalyticsText>
+            Total:{" "}
+            <strong>
+              {" "}
+              {`${getSymbolFromCurrency(this.props.activeCurrency)}${
+                Math.round((total + Number.EPSILON) * 100) / 100 +  Math.round((21/ 100) *total )
+              } `}
+            </strong>
+          </AnalyticsText>
+          <Button style={{ color: "#fff" , fontSize: 14, fontWeight: 600}}>ORDER</Button>
+        </div>
+        : <p>Cart is empty</p>}
+        
         </CartAnalytics>
       </Container>
     );

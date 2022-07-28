@@ -1,5 +1,4 @@
 import React from 'react';
-import getSymbolFromCurrency from 'currency-symbol-map';
 import { AttributeContainer, AttributeTitle } from '../product/ProductAttribute';
 import ChipGroup from '../common/ChipGroup';
 

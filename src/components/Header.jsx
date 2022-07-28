@@ -1,5 +1,4 @@
 import React from 'react';
-import './StoreHeader.css';
 import Categories from '../features/categories/Categories';
 import { Navbar, NavLogo, NavList } from './navigation/Navbar';
 import CurrencySwitcher from '../features/currency-switcher/Currency-Switcher';
@@ -13,7 +12,7 @@ export default class StoreHeader extends React.Component {
         <NavLogo src="/a-logo.png" size={40} />
         <NavList right>
           <CurrencySwitcher
-            setCurrencySwitcherCLoseFunc={(func) => {
+            setCurrencySwitcherCloseFunc={(func) => {
               this.setCurrencySwitcherClosed = func;
             }}
             onCurrencySwitcherButtonClicked={() => {

@@ -1,12 +1,9 @@
 import React from 'react';
 import Chip from './Chip';
+import ChipSmall from './chip-mini';
 import './styles/ChipGroup.css';
 
-/**
- * props:
- * type - swatch/normal
- * data
- */
+
 export default class ChipGroup extends React.Component {
   constructor(props) {
     super(props);
@@ -59,7 +56,7 @@ export default class ChipGroup extends React.Component {
   renderSwatch(index, item) {
     if (index === this.state.selectedItemIndex) {
       return (
-        <Chip
+        <ChipSmall
           onClick={() => this.selectChip(index)}
           mini={this.props.mini}
           selected
@@ -70,7 +67,7 @@ export default class ChipGroup extends React.Component {
       );
     }
     return (
-      <Chip
+      <ChipSmall
         onClick={() => this.selectChip(index)}
         mini={this.props.mini}
         swatch

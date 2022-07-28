@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CartIcon } from '../../icons/Icons';
 import './styles/ProductCard.css';

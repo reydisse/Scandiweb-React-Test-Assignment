@@ -10,8 +10,18 @@
   justify-content: center;
   align-items: center;
   transition: all 200ms ease;
-  height: 32px;
-  width: 32px;
+}
+.chip-sm{
+  display: inline-flex;
+  cursor: default;
+  padding: 4px 6px 4px 6px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  min-width: 32px;
+  min-height: 32px;
+  justify-content: center;
+  align-items: center;
+  transition: all 200ms ease;
 }
 
 .chip:hover {
@@ -33,6 +43,10 @@ height: 32px
 }
 
 .chip.chip-swatch.chip-selected {
+  border: 2px solid var(--color-red);
+}
+
+.chip-sm.chip-swatch.chip-selected {
   border: 2px solid var(--color-red);
 }
 
