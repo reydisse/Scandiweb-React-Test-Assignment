@@ -18,6 +18,10 @@ export const NavItem = styled.li`
   &.nav-item-padding-one-half {
     padding: 1.5rem;
   }
+
+  &.nav-item-padding-one-half {
+    borderBottom: isActive ? 'solid 2px var(--color-green)' : '',
+  }
 `;
 
 

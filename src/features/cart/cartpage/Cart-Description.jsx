@@ -70,6 +70,9 @@ const Button = styled.button`
   align-items: center;
   padding: 16px 32px;
   text-decoration: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
   width: 279px;
   height: 43px;
   background: #5ece7b;
@@ -159,7 +162,7 @@ class CartPage extends React.Component {
           <AnalyticsText>
             Tax 21%: <strong> {" "}
             {`${getSymbolFromCurrency(this.props.activeCurrency)}${
-                Math.round((21/ 100) * (total + Number.EPSILON) )
+                Math.round((21/ 100) * (total + Number.EPSILON) ).toFixed(2)
               }`}
             </strong>
           </AnalyticsText>
@@ -171,11 +174,11 @@ class CartPage extends React.Component {
             <strong>
               {" "}
               {`${getSymbolFromCurrency(this.props.activeCurrency)}${
-                Math.round((total + Number.EPSILON) * 100) / 100 +  Math.round((21/ 100) *total )
+                (Math.round((total + Number.EPSILON) * 100) / 100 +  Math.round((21/ 100) *total )).toFixed(2)
               } `}
             </strong>
           </AnalyticsText>
-          <Button style={{ color: "#fff" , fontSize: 14, fontWeight: 600}}>ORDER</Button>
+          <Button>ORDER</Button>
         </div>
         : <p>Cart is empty</p>}
         

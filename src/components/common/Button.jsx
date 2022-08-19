@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Button = styled.button`
   background: none;
@@ -20,7 +20,9 @@ export const Button = styled.button`
   &.button-primary {
     background-color: var(--color-green);
     color: white;
-    width: 100%;
+    justify-content: center;
+    width: 292px;
+height: 52px
     &:hover {
       background-color: var(--color-darker-green);
     }
