@@ -18,8 +18,10 @@
 }
 .card-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   position: absolute;
+  overflow: hidden;
+  object-fit: contain;
 }
 
 .product-card-name {

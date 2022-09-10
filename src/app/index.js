@@ -70,7 +70,6 @@ class App extends React.Component {
             this.setState({ showOverlay: open });
           }}
         />
-        {this.state.showOverlay ? <Overlay /> : ""}
         <Switch>
           <Route exact path="/" render={() => <Redirect to="/all" />} />
           {this.props.categories.map((category, index) => {
@@ -88,6 +87,7 @@ class App extends React.Component {
           />
           <Route path="/cart" component={CartPage} />
         </Switch>
+        {this.state.showOverlay ? <Overlay /> : ""}
       </Router>
     );
   }

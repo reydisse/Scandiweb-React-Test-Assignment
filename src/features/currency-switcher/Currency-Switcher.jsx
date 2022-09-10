@@ -1,13 +1,13 @@
-import React from 'react';
-import getSymbolFromCurrency from 'currency-symbol-map';
-import { connect } from 'react-redux';
-import { fetchCurrencies, setActiveCurrency } from './CurrencySlice';
-import { NavItem } from '../../components/navigation/Navbar';
-import { Button } from '../../components/common/Button';
-import DropDownMenu from '../../components/navigation/DropDownMenu';
-import { ChevronDown, ChevronUp } from '../../icons/Icons';
+import React from "react";
+import getSymbolFromCurrency from "currency-symbol-map";
+import { connect } from "react-redux";
+import { fetchCurrencies, setActiveCurrency } from "./CurrencySlice";
+import { NavItem } from "../../components/navigation/Navbar";
+import { Button } from "../../components/common/Button";
+import DropDownMenu from "../../components/navigation/DropDownMenu";
+import { ChevronDown, ChevronUp } from "../../icons/Icons";
 
-import './styles/CurrencySwitcher.css';
+import "./styles/CurrencySwitcher.css";
 
 const mapStateToProps = (state) => {
   const currencies = state.CurrencyReducer.currencies;
@@ -46,7 +46,10 @@ class CurrencySwitcher extends React.Component {
       <NavItem
         className="no-padding"
         onBlur={(e) => {
-          if (!this.dropdownRef.current.contains(e.relatedTarget) && this.state.open) {
+          if (
+            !this.dropdownRef.current.contains(e.relatedTarget) &&
+            this.state.open
+          ) {
             this.setState((prevState) => ({ open: !prevState.open }));
             this.props.onCurrencySwitcherButtonClicked(this.state.open);
           }
@@ -60,7 +63,7 @@ class CurrencySwitcher extends React.Component {
               (prevState) => ({ open: !prevState.open }),
               () => {
                 this.props.onCurrencySwitcherButtonClicked(this.state.open);
-              },
+              }
             );
           }}
         >
@@ -75,26 +78,22 @@ class CurrencySwitcher extends React.Component {
           )}
         </Button>
         <DropDownMenu open={this.state.open}>
-          {this.props.status === 'success'
+          {this.props.status === "success"
             ? this.props.currencies.map((currency, index) => {
                 return (
                   <div className="dropdown-item" key={String(index)}>
                     <Button
                       onClick={() => {
                         this.props.setActiveCurrency(currency.label);
+                        this.setState({ open: false });
                       }}
                     >
-                     
-                      <p className="currency-symbol-and-name">{`${
-                        currency.symbol
-                      } ${currency.label}`}</p>
-                     
+                      <p className="currency-symbol-and-name">{`${currency.symbol} ${currency.label}`}</p>
                     </Button>
-                    
                   </div>
                 );
               })
-            : ''}
+            : ""}
         </DropDownMenu>
       </NavItem>
     );

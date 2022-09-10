@@ -1,6 +1,9 @@
-import React from 'react';
-import { AttributeContainer, AttributeTitle } from '../product/ProductAttribute';
-import ChipGroup from '../common/ChipGroup';
+import React from "react";
+import {
+  AttributeContainer,
+  AttributeTitle,
+} from "../product/ProductAttribute";
+import ChipGroup from "../common/ChipGroup";
 
 export default class CartMenuItemDescription extends React.Component {
   render() {
@@ -12,12 +15,10 @@ export default class CartMenuItemDescription extends React.Component {
       <div className="cart-menu-container">
         <p>{this.props.data.data.brand}</p>
         <p>{this.props.data.data.name}</p>
-        <p className="cart-menu-price">{`${price.currency.symbol} ${
-          price.amount
-        }`}</p>
+        <p className="cart-menu-price">{`${price.currency.symbol} ${price.amount}`}</p>
         {this.props.data.data.attributes.map((attribute, index) => {
           const attributeData = this.props.data.attributeData[index];
-          if (attribute.type === 'swatch') {
+          if (attribute.type === "swatch") {
             return (
               <AttributeContainer key={String(index)}>
                 <AttributeTitle>{attribute.name}:</AttributeTitle>
@@ -26,9 +27,6 @@ export default class CartMenuItemDescription extends React.Component {
                   swatchGroup
                   data={attribute.items}
                   selectedIndex={attributeData.selectedIndex}
-                  onSelectChip={(idx) => {
-                    this.props.onChipSelected(attribute.name, idx);
-                  }}
                 />
               </AttributeContainer>
             );
@@ -40,9 +38,6 @@ export default class CartMenuItemDescription extends React.Component {
                 mini
                 data={attribute.items}
                 selectedIndex={attributeData.selectedIndex}
-                onSelectChip={(idx) => {
-                  this.props.onChipSelected(attribute.name, idx);
-                }}
               />
             </AttributeContainer>
           );

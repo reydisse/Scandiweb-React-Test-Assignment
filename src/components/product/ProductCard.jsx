@@ -1,21 +1,28 @@
-import React from 'react';
-import { CartIcon } from '../../icons/Icons';
-import './styles/ProductCard.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import { CartIcon } from "../../icons/Icons";
+import "./styles/ProductCard.css";
 
 export default class ProductCard extends React.Component {
   render() {
     const price = this.props.data.prices.find((element) => {
       return element.currency.label === this.props.activeCurrency;
     });
-    console.log(price)
-    // console.log(this.props.data.prices)
+
     return (
-      <a className="card-link" href={`/product/${this.props.activeCategory}/${this.props.data.id}`}>
+      <Link
+        className="card-link"
+        to={`/product/${this.props.activeCategory}/${this.props.data.id}`}
+      >
         <div className="card">
           {this.props.data.inStock ? (
             <div className="card-main">
               <div className="card-img-container">
-                <img className="card-img" src={this.props.data.gallery[0]} alt="img" />
+                <img
+                  className="card-img"
+                  src={this.props.data.gallery[0]}
+                  alt="img"
+                />
               </div>
               <button
                 onClick={(e) => {
@@ -28,9 +35,9 @@ export default class ProductCard extends React.Component {
                 <CartIcon className="product-card-cart-icon" />
               </button>
               <p className="product-card-name">{`${this.props.data.brand} ${this.props.data.name}`}</p>
-              <p className="product-card-price">{`${price?.currency?.symbol ?? ''}  ${
-                price?.amount
-              }`}</p>
+              <p className="product-card-price">{`${
+                price?.currency?.symbol ?? ""
+              }  ${price?.amount}`}</p>
             </div>
           ) : (
             <div className="card-main">
@@ -38,16 +45,18 @@ export default class ProductCard extends React.Component {
                 <h2 className="card-out-of-stock-title">OUT OF STOCK</h2>
               </div>
               <div className="card-img-container">
-                <img className="card-img" src={this.props.data.gallery[0]} alt="img" />
+                <img
+                  className="card-img"
+                  src={this.props.data.gallery[0]}
+                  alt="img"
+                />
               </div>
               <p className="product-card-name">{`${this.props.data.brand} ${this.props.data.name}`}</p>
-              <p className="product-card-price">{`${price?.currency?.symbol} ${
-                price?.amount
-              }`}</p>
+              <p className="product-card-price">{`${price?.currency?.symbol} ${price?.amount}`}</p>
             </div>
           )}
         </div>
-      </a>
+      </Link>
     );
   }
 }

@@ -1,8 +1,7 @@
-import React from 'react';
-import Chip from './Chip';
-import ChipSmall from './chip-mini';
-import './styles/ChipGroup.css';
-
+import React from "react";
+import Chip from "./Chip";
+import ChipSmall from "./chip-mini";
+import "./styles/ChipGroup.css";
 
 export default class ChipGroup extends React.Component {
   constructor(props) {
@@ -28,14 +27,14 @@ export default class ChipGroup extends React.Component {
     this.setState({
       selectedItemIndex: index,
     });
-    this.props.onSelectChip(index);
+    this.props.onSelectChip?.(index);
   }
 
   renderChip(index, item) {
     if (index === this.state.selectedItemIndex) {
       return (
         <Chip
-          onClick={() => this.selectChip(index)}
+          onClick={() => !this.props.disabled && this.selectChip(index)}
           mini={this.props.mini}
           selected
           label={item.value}
@@ -47,7 +46,7 @@ export default class ChipGroup extends React.Component {
       <Chip
         label={item.value}
         mini={this.props.mini}
-        onClick={() => this.selectChip(index)}
+        onClick={() => !this.props.disabled && this.selectChip(index)}
         key={String(index)}
       />
     );
@@ -57,7 +56,7 @@ export default class ChipGroup extends React.Component {
     if (index === this.state.selectedItemIndex) {
       return (
         <ChipSmall
-          onClick={() => this.selectChip(index)}
+          onClick={() => !this.props.disabled && this.selectChip(index)}
           mini={this.props.mini}
           selected
           swatch
@@ -68,7 +67,7 @@ export default class ChipGroup extends React.Component {
     }
     return (
       <ChipSmall
-        onClick={() => this.selectChip(index)}
+        onClick={() => !this.props.disabled && this.selectChip(index)}
         mini={this.props.mini}
         swatch
         background={item.value}
@@ -84,7 +83,7 @@ export default class ChipGroup extends React.Component {
           if (this.props.swatchGroup) {
             return this.renderSwatch(index, item);
           }
-          return this.renderChip(index, item, '');
+          return this.renderChip(index, item, "");
         })}
       </div>
     );

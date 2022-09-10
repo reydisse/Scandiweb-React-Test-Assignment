@@ -1,5 +1,5 @@
-import React from 'react';
-import './styles/ImageSlider.css';
+import React from "react";
+import "./styles/ImageSlider.css";
 
 export default class ProductImageSlider extends React.Component {
   constructor(props) {
@@ -12,30 +12,34 @@ export default class ProductImageSlider extends React.Component {
   render() {
     return (
       <div className="slider-image-container">
-        <ul className="slider-images-list">
-          {this.props.data.map((item, index) => {
-            return (
-              <li
-                onClick={() => {
-                  this.setState({
-                    selectedImageIndex: index,
-                  });
-                }}
-                role="none"
-                className="slider-thumbnail-container"
-                key={String(index)}
-              >
-                <img
-                  className={`slider-thumbnail ${
-                    this.state.selectedImageIndex === index ? 'slider-thumbnail-active' : ''
-                  }`}
-                  src={item}
-                  alt="thumbnail"
-                />
-              </li>
-            );
-          })}
-        </ul>
+        <div>
+          <ul className="slider-images-list">
+            {this.props.data.map((item, index) => {
+              return (
+                <li
+                  onClick={() => {
+                    this.setState({
+                      selectedImageIndex: index,
+                    });
+                  }}
+                  role="none"
+                  className="slider-thumbnail-container"
+                  key={String(index)}
+                >
+                  <img
+                    className={`slider-thumbnail ${
+                      this.state.selectedImageIndex === index
+                        ? "slider-thumbnail-active"
+                        : ""
+                    }`}
+                    src={item}
+                    alt="thumbnail"
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         <div className="slider-main-img-container">
           <img
             className="slider-main-img"

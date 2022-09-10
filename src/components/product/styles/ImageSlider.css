@@ -9,8 +9,11 @@
 }
 
 .slider-images-list {
+  width: 100px;
+  max-height: 587px;
   list-style: none;
   padding-right: 5px;
+  overflow-y: scroll;
 }
 
 .slider-thumbnail-container {

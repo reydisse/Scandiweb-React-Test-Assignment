@@ -126,13 +126,6 @@ class CartPage extends React.Component {
               <CartItem key={String(index)}>
                 <CartPageItemDescriptionContainer
                   data={item.product}
-                  onChipSelected={(name, idx) => {
-                    this.props.setNewAttributeSelectedIndex({
-                      name,
-                      idx,
-                      id: item.id,
-                    });
-                  }}
                   activeCurrency={this.props.activeCurrency}
                 />
                 <CartAmountSelection
@@ -157,31 +150,37 @@ class CartPage extends React.Component {
           })}
         </CartList>
         <CartAnalytics>
-        {this.props.products.length > 0 ? 
-          <div>
-          <AnalyticsText>
-            Tax 21%: <strong> {" "}
-            {`${getSymbolFromCurrency(this.props.activeCurrency)}${
-                Math.round((21/ 100) * (total + Number.EPSILON) ).toFixed(2)
-              }`}
-            </strong>
-          </AnalyticsText>
-          <AnalyticsText>
-            Quantity: <strong> {this.props.totalItemQuantity}</strong>
-          </AnalyticsText>
-          <AnalyticsText>
-            Total:{" "}
-            <strong>
-              {" "}
-              {`${getSymbolFromCurrency(this.props.activeCurrency)}${
-                (Math.round((total + Number.EPSILON) * 100) / 100 +  Math.round((21/ 100) *total )).toFixed(2)
-              } `}
-            </strong>
-          </AnalyticsText>
-          <Button>ORDER</Button>
-        </div>
-        : <p>Cart is empty</p>}
-        
+          {this.props.products.length > 0 ? (
+            <div>
+              <AnalyticsText>
+                Tax 21%:{" "}
+                <strong>
+                  {" "}
+                  {`${getSymbolFromCurrency(
+                    this.props.activeCurrency
+                  )}${Math.round((21 / 100) * (total + Number.EPSILON)).toFixed(
+                    2
+                  )}`}
+                </strong>
+              </AnalyticsText>
+              <AnalyticsText>
+                Quantity: <strong> {this.props.totalItemQuantity}</strong>
+              </AnalyticsText>
+              <AnalyticsText>
+                Total:{" "}
+                <strong>
+                  {" "}
+                  {`${getSymbolFromCurrency(this.props.activeCurrency)}${(
+                    Math.round((total + Number.EPSILON) * 100) / 100 +
+                    Math.round((21 / 100) * total)
+                  ).toFixed(2)} `}
+                </strong>
+              </AnalyticsText>
+              <Button>ORDER</Button>
+            </div>
+          ) : (
+            <p>Cart is empty</p>
+          )}
         </CartAnalytics>
       </Container>
     );

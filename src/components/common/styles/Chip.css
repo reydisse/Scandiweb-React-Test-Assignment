@@ -11,7 +11,7 @@
   align-items: center;
   transition: all 200ms ease;
 }
-.chip-sm{
+.chip-sm {
   display: inline-flex;
   cursor: default;
   padding: 4px 6px 4px 6px;
@@ -23,22 +23,14 @@
   align-items: center;
 }
 
-.chip:hover {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.chip.chip-swatch:hover {
-  border: 2px solid rgba(0, 0, 0, 0.5);
-}
-
 .chip.chip-selected {
   background-color: black;
   color: white;
 }
 
 .chip.chip-swatch {
-width: 32px;
-height: 32px
+  width: 32px;
+  height: 32px;
 }
 
 .chip.chip-swatch.chip-selected {

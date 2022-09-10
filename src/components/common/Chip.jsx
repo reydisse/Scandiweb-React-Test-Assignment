@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './styles/Chip.css';
 
@@ -19,4 +20,3 @@ export default class Chip extends React.Component {
     );
   }
 }
-

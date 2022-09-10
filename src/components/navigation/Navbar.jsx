@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const NavItem = styled.li`
   padding: ${(props) => {
-    return props.padding ? `${props.padding}rem;` : '1rem';
+    return props.padding ? `${props.padding}rem;` : "1rem";
   }};
+  border-bottom: ${(props) =>
+    props.isActive && " 2px solid var(--color-green)"};
   font-size: 16px;
   & > .nav-link {
     color: black;
@@ -24,15 +26,13 @@ export const NavItem = styled.li`
   }
 `;
 
-
-
 export const NavList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
   ${(props) =>
-    (props.left && 'justify-content: flex-start; padding-left: 5rem;') ||
-    (props.right && 'justify-content: flex-end; padding-right: 6rem;')}
+    (props.left && "justify-content: flex-start; padding-left: 5rem;") ||
+    (props.right && "justify-content: flex-end; padding-right: 6rem;")}
 `;
 
 export const NavLogo = styled.img`
