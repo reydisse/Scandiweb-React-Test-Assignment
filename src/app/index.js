@@ -62,6 +62,7 @@ class App extends React.Component {
     this.props.fetchCategories();
   }
 
+
   render() {
     return (
       <Router>
@@ -92,5 +93,6 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
