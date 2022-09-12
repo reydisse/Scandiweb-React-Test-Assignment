@@ -46,6 +46,18 @@ class App extends React.Component {
     };
   }
 
+  componentDidUpdate(){
+   
+    const body = document.querySelector("body");
+    if (this.state.showOverlay) {
+      // Disable scroll
+      body.style.overflow = "hidden";
+  } else {
+      // Enable scroll
+      body.style.overflow = "auto";
+  }
+  }
+
   componentDidMount() {
     if (this.props.categories.length === 0) {
       this.props.pushCategory({ name: "all" });
