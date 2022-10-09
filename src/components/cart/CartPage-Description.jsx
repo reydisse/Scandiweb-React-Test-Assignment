@@ -19,7 +19,7 @@ export default class CartPageItemDescriptionContainer extends React.Component {
         <h2 className="cart-page-description-name">
           {this.props.data.data.name}
         </h2>
-        <h3 className="cart-page-description-price">{`${price.currency.label}${price.amount}`}</h3>
+        <h3 className="cart-page-description-price">{`${price.currency.label}${price.amount.toFixed(2)}`}</h3>
         {this.props.data.data.attributes.map((attribute, index) => {
           const attributeData = this.props.data.attributeData[index];
           if (attribute.type === "swatch") {

@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import DOMPurify from "dompurify";
 import { fetchProductById } from "./ProductSlice";
 import "./styles/ProductDetailPage.css";
 import {
@@ -11,8 +10,9 @@ import { Button } from "../../components/common/Button";
 import ChipGroup from "../../components/common/ChipGroup";
 import ProductImageSlider from "../../components/product/ProductImageSlider";
 import { addItemToCart } from "../cart/CartSlice";
+const regex = /(&nbsp;|<([^>]+)>)/ig
+ 
 
-const purify = DOMPurify.sanitize;
 
 const mapStateToProps = (state) => {
   return {
@@ -120,7 +120,7 @@ class ProductDescriptionPageComponent extends React.Component {
             <p className="product-description-price-title">PRICE:</p>
             <p className="product-description-price">{`${
               this.getProductPrice().currency.symbol
-            } ${this.getProductPrice().amount}`}</p>
+            } ${this.getProductPrice().amount.toFixed(2)}`}</p>
             <Button
               className="button-primary"
               onClick={() => {
@@ -138,10 +138,10 @@ class ProductDescriptionPageComponent extends React.Component {
             </Button>
             <div
               className="product-description"
-              dangerouslySetInnerHTML={{
-                __html: purify(this.props.product.description),
-              }}
-            />
+             
+            >
+              {this.props.product.description.replace(regex, "")}
+            </div>
           </div>
         </div>
       );

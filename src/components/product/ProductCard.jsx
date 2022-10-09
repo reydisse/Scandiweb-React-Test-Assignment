@@ -37,7 +37,7 @@ export default class ProductCard extends React.Component {
               <p className="product-card-name">{`${this.props.data.brand} ${this.props.data.name}`}</p>
               <p className="product-card-price">{`${
                 price?.currency?.symbol ?? ""
-              }  ${price?.amount}`}</p>
+              }  ${price?.amount.toFixed(2)}`}</p>
             </div>
           ) : (
             <div className="card-main">
@@ -52,7 +52,7 @@ export default class ProductCard extends React.Component {
                 />
               </div>
               <p className="product-card-name">{`${this.props.data.brand} ${this.props.data.name}`}</p>
-              <p className="product-card-price">{`${price?.currency?.symbol} ${price?.amount}`}</p>
+              <p className="product-card-price">{`${price?.currency?.symbol} ${price?.amount.toFixed(2)}`}</p>
             </div>
           )}
         </div>

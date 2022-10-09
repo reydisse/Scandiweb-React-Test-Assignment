@@ -15,7 +15,7 @@ export default class CartMenuItemDescription extends React.Component {
       <div className="cart-menu-container">
         <p>{this.props.data.data.brand}</p>
         <p>{this.props.data.data.name}</p>
-        <p className="cart-menu-price">{`${price.currency.symbol} ${price.amount}`}</p>
+        <p className="cart-menu-price">{`${price.currency.symbol} ${price.amount.toFixed(2)}`}</p>
         {this.props.data.data.attributes.map((attribute, index) => {
           const attributeData = this.props.data.attributeData[index];
           if (attribute.type === "swatch") {
